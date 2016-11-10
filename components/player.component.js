@@ -19,6 +19,21 @@
 		spotify.song = null;
 		spotify.audio = new Audio;
 		spotify.search = doSearch;
+		spotify.play = play;
+
+		function play(song) {
+			spotify.song = song;
+			spotify.audio.src = song.preview_url;
+			spotify.audio.pause();
+			spotify.audio.play();
+		}
+
+		function miliseconds(ms) {
+			var min = Math.floor((ms/1000/60));
+			var sec = Math.floor((ms/1000)% 60);
+			
+			return min + ":" + sec;
+		}
 
 		function doSearch() {
 			spotify.apiData = apiSpotify.get({

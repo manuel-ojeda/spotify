@@ -6,18 +6,18 @@
 		</form>
 		<div class="player" ng-if="$ctrl.playlist">
 			<div class="results">
-				<a class="song" ng-repeat="song in $ctrl.playlist">
+				<a class="song" ng-click="$ctrl.play(song)" ng-repeat="song in $ctrl.playlist">
 					<span class="title">{{song.name}}</span>
-					<span></span>
-					<span></span>
+					<span>{{$ctrl.milliseconds(song.duration_ms)}}</span>
+					<span>{{song.artists[0].name}}</span>
 				</a>
 			</div>
-			<div class="song-details" ng-if="$ctrl.playlist">
+			<div class="song-detail" ng-if="$ctrl.playlist">
 				<div class="header">
-					<img src="" alt="">
-					<span class="title">Title</span>
-					<span>Duration</span>
-					<span>Popularity</span>
+				<img ng-src="{{$ctrl.song.album.images[2].url}}" alt="">
+					<span class="title">{{$ctrl.song.name}}</span>
+					<span>Duration: {{$ctrl.miliseconds(song.duration_ms)}}</span>
+					<span>Popularity: {{$ctrl.song.popularity}}</span>
 					<span>Album</span>
 					<span>Name</span>
 				</div>
